@@ -24,7 +24,6 @@ const pricingPlans = [
       "Dedicated Manager"
     ],
     popular: false,
-    color: "from-[#1C6880] to-[#1C6880]/90"
   },
   {
     name: "Dubai Freezone",
@@ -44,7 +43,6 @@ const pricingPlans = [
       "Personal Account Manager"
     ],
     popular: false,
-    color: "from-[#1C6880] to-[#1C6880]/90"
   },
   {
     name: "Rakez Freezone",
@@ -64,7 +62,6 @@ const pricingPlans = [
       "Dedicated Manager"
     ],
     popular: true,
-    color: "from-[#1C6880] to-[#1C6880]/90"
   },
   {
     name: "Dubai Mainland",
@@ -84,54 +81,53 @@ const pricingPlans = [
       "Dedicated Manager"
     ],
     popular: false,
-    color: "from-[#1C6880] to-[#1C6880]/90"
   }
 ];
 
 export default function PricingSection() {
   return (
-    <section className="relative my-20 py-16 bg-white overflow-hidden">
+    <section className="relative my-12 md:my-20 py-10 md:py-16 bg-white overflow-hidden">
       <div className="absolute inset-0 bg-[url('/pattern.svg')] opacity-5"></div>
 
-      <div className="relative w-[90%] sm:w-[85%] max-w-7xl mx-auto flex flex-col gap-12 z-10">
+      <div className="relative w-full px-4 sm:w-[85%] max-w-7xl mx-auto flex flex-col gap-10 md:gap-16 z-10">
         
-        {/* --- New: Business Analysis & Advisory Section --- */}
+        {/* --- Business Analysis & Advisory Section --- */}
         <motion.div 
-          initial={{ opacity: 0, scale: 0.95 }}
+          initial={{ opacity: 0, scale: 0.98 }}
           whileInView={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.6 }}
           viewport={{ once: true }}
-          className="bg-[#1C6880]/5 border border-[#1C6880]/10 rounded-3xl p-8 md:p-12"
+          className="bg-[#1C6880]/5 border border-[#1C6880]/10 rounded-3xl p-6 md:p-12"
         >
-          <div className="grid lg:grid-cols-2 gap-10 items-center">
-            <div>
-              <div className="inline-flex items-center gap-2 bg-[#1C6880] text-white px-4 py-1 rounded-full text-xs font-bold tracking-widest mb-6 uppercase">
+          <div className="grid lg:grid-cols-2 gap-8 md:gap-12 items-center">
+            <div className="text-center lg:text-left">
+              <div className="inline-flex items-center gap-2 bg-[#1C6880] text-white px-4 py-1.5 rounded-full text-[10px] md:text-xs font-bold tracking-widest mb-4 md:mb-6 uppercase">
                 Strategy First
               </div>
-              <h2 className="text-[#1C6880] font-bold text-3xl md:text-4xl mb-6 font-[family-name:var(--font-playfair)]">
-                Business Analysis & Advisory
+              <h2 className="text-[#1C6880] font-bold text-2xl xs:text-3xl md:text-4xl mb-4 md:mb-6 font-[family-name:var(--font-playfair)] leading-tight">
+                Business Analysis <br className="hidden xs:block lg:hidden" /> & Advisory
               </h2>
-              <p className="text-gray-700 text-lg leading-relaxed mb-6">
-                Get a clear view of your business potential with our strategic analysis and advisory services. We help you make informed decisions using market insights and industry benchmarking.
+              <p className="text-gray-700 text-sm md:text-lg leading-relaxed mb-6 md:mb-8 max-w-xl mx-auto lg:mx-0">
+                Get a clear view of your business potential with strategic analysis. We help you make informed decisions using market insights and industry benchmarking.
               </p>
-              <Link href="#form" className="group flex items-center gap-2 text-[#1C6880] font-bold hover:gap-4 transition-all">
+              <Link href="#form" className="group inline-flex items-center gap-2 text-[#1C6880] font-bold hover:gap-4 transition-all text-sm md:text-base">
                 Request a Free Consultation <ArrowRight className="w-5 h-5" />
               </Link>
             </div>
 
-            <div className="grid sm:grid-cols-1 gap-4">
+            <div className="grid grid-cols-1 gap-3 md:gap-4">
               {[
-                { icon: LineChart, title: "Business Planning Support", desc: "Crafting a roadmap for sustainable success." },
-                { icon: Target, title: "Cost & Structure Optimization", desc: "Maximizing efficiency from day one." },
-                { icon: TrendingUp, title: "Growth-Focused Advisory", desc: "Insights designed to scale your operations." }
+                { icon: LineChart, title: "Business Planning Support", desc: "Roadmap for sustainable success." },
+                { icon: Target, title: "Structure Optimization", desc: "Maximizing efficiency from day one." },
+                { icon: TrendingUp, title: "Growth-Focused Advisory", desc: "Insights designed to scale." }
               ].map((item, i) => (
-                <div key={i} className="flex items-start gap-4 bg-white p-5 rounded-2xl shadow-sm border border-gray-100">
-                  <div className="bg-[#1C6880]/10 p-3 rounded-xl text-[#1C6880]">
-                    <item.icon size={24} />
+                <div key={i} className="flex items-center lg:items-start gap-4 bg-white p-4 md:p-5 rounded-2xl shadow-sm border border-gray-100 transition-transform active:scale-[0.98]">
+                  <div className="bg-[#1C6880]/10 p-2.5 md:p-3 rounded-xl text-[#1C6880] shrink-0">
+                    <item.icon size={20} className="md:w-6 md:h-6" />
                   </div>
                   <div>
-                    <h4 className="font-bold text-[#1C6880]">{item.title}</h4>
-                    <p className="text-sm text-gray-500">{item.desc}</p>
+                    <h4 className="font-bold text-[#1C6880] text-sm md:text-base">{item.title}</h4>
+                    <p className="text-xs text-gray-500 md:mt-1">{item.desc}</p>
                   </div>
                 </div>
               ))}
@@ -139,24 +135,24 @@ export default function PricingSection() {
           </div>
         </motion.div>
 
-        {/* --- Original Pricing Header --- */}
+        {/* --- Pricing Header --- */}
         <motion.div
-          initial={{ opacity: 0, y: -20 }}
+          initial={{ opacity: 0, y: -10 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
           viewport={{ once: true }}
-          className="text-center mt-8"
+          className="text-center px-2"
         >
-          <h2 className="uppercase font-bold sm:text-4xl text-2xl tracking-wide text-[#1C6880] mb-4">
-            Transparent Pricing Plans
+          <h2 className="uppercase font-bold text-2xl xs:text-3xl md:text-4xl tracking-tight text-[#1C6880] mb-3">
+            Transparent Pricing
           </h2>
-          <p className="text-gray-600 sm:text-lg max-w-2xl mx-auto italic">
-            Pick a setup package that fits your goals. No hidden fees.
+          <p className="text-gray-600 text-sm md:text-lg max-w-2xl mx-auto italic">
+            Pick a setup package that fits your goals. <br className="xs:hidden" /> No hidden fees.
           </p>
         </motion.div>
 
         {/* Pricing Cards */}
-        <div className="w-full grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="w-full grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-4 lg:gap-6">
           {pricingPlans.map((plan, index) => (
             <motion.div
               key={index}
@@ -164,46 +160,49 @@ export default function PricingSection() {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ delay: index * 0.1, duration: 0.5 }}
               viewport={{ once: true }}
-              className={`relative bg-white rounded-2xl p-6 border-2 transition-all duration-300 hover:shadow-2xl ${
+              className={`relative bg-white rounded-3xl p-6 border-2 transition-all duration-300 flex flex-col ${
                 plan.popular 
-                  ? 'border-[#FFD700] scale-105 z-20' 
-                  : 'border-[#1C6880]/10 hover:border-[#1C6880]/30'
+                  ? 'border-[#FFD700] shadow-xl md:scale-105 z-20' 
+                  : 'border-[#1C6880]/10'
               }`}
             >
               {plan.popular && (
-                <div className="absolute -top-4 left-1/2 -translate-x-1/2 bg-gradient-to-r from-[#FFD700] to-[#FFA500] text-black px-4 py-1 rounded-full text-[10px] font-black shadow-md uppercase tracking-tighter flex items-center gap-1">
-                  <Star size={12} fill="black" /> Best Value
+                <div className="absolute -top-4 left-1/2 -translate-x-1/2 bg-gradient-to-r from-[#FFD700] to-[#FFA500] text-black px-4 py-1.5 rounded-full text-[10px] font-black shadow-md uppercase tracking-wider flex items-center gap-1 whitespace-nowrap">
+                  <Star size={12} fill="black" /> Best Value Choice
                 </div>
               )}
 
-              <div className="mb-6">
+              <div className="mb-5 text-center sm:text-left">
                 <h3 className="text-xl font-bold text-[#1C6880] mb-1">{plan.name}</h3>
-                <p className="text-xs font-semibold text-gray-400 uppercase tracking-widest">{plan.visa}</p>
+                <p className="text-[10px] font-bold text-gray-400 uppercase tracking-widest">{plan.visa}</p>
               </div>
 
-              <div className="mb-6">
+              <div className="mb-6 text-center sm:text-left pb-4 border-b border-gray-50">
                 <span className="text-3xl font-black text-[#1C6880]">{plan.price}</span>
-                <span className="text-gray-400 text-xs ml-1">/one-time</span>
+                <span className="text-gray-400 text-xs ml-1">/total</span>
               </div>
 
-              <div className="space-y-3 mb-8 min-h-[320px]">
+              {/* Feature list optimized for 2-column on mobile to save vertical space */}
+              <div className="grid grid-cols-2 sm:grid-cols-1 gap-x-2 gap-y-3 mb-8 min-h-0 sm:min-h-[320px]">
                 {plan.features.map((feature, fIdx) => (
                   <div key={fIdx} className="flex items-start gap-2">
-                    <Check className="w-4 h-4 text-[#1C6880] mt-0.5 flex-shrink-0" />
-                    <span className="text-xs text-gray-600 leading-tight">{feature}</span>
+                    <Check className="w-3.5 h-3.5 text-teal-500 mt-0.5 flex-shrink-0" />
+                    <span className="text-[11px] md:text-xs text-gray-600 leading-tight">{feature}</span>
                   </div>
                 ))}
               </div>
 
-              <Link href="#form">
-                <Button className={`w-full font-bold py-6 rounded-xl transition-all ${
-                  plan.popular 
-                  ? 'bg-[#1C6880] text-white hover:bg-[#154e61]' 
-                  : 'bg-white border-2 border-[#1C6880] text-[#1C6880] hover:bg-[#1C6880] hover:text-white'
-                }`}>
-                  Get Started
-                </Button>
-              </Link>
+              <div className="mt-auto">
+                <Link href="#form">
+                  <Button className={`w-full font-bold py-6 rounded-2xl transition-all active:scale-95 ${
+                    plan.popular 
+                      ? 'bg-[#1C6880] text-white shadow-lg shadow-[#1C6880]/20' 
+                      : 'bg-white border-2 border-[#1C6880] text-[#1C6880] hover:bg-[#1C6880] hover:text-white'
+                  }`}>
+                    Get Started
+                  </Button>
+                </Link>
+              </div>
             </motion.div>
           ))}
         </div>
