@@ -9,16 +9,12 @@ const pricingPlans = [
   {
     name: "Sharjah Freezone",
     label: "BASIC",
-    visa: "0 Visa",
     price: "AED 5750",
     features: [
       "Business Advisory",
-      "Zero Visa Free",
       "100% Foreign Ownership",
       "Business License",
       "MOA & AOA",
-      "Free Tax/VAT Session",
-      "0% withhold tax",
       "100% profit repatriation",
       "Flexi desk",
       "Dedicated Manager"
@@ -28,7 +24,6 @@ const pricingPlans = [
   {
     name: "Dubai Freezone",
     label: "BASIC",
-    visa: "0 Visa",
     price: "AED 12500",
     features: [
       "Setup Consultation",
@@ -36,8 +31,6 @@ const pricingPlans = [
       "Full Foreign Ownership",
       "License Included",
       "MOA & AOA Provided",
-      "Free Tax/VAT Session",
-      "0% withhold tax",
       "Full Profit Transfer",
       "Flexible Desk Option",
       "Personal Account Manager"
@@ -47,16 +40,12 @@ const pricingPlans = [
   {
     name: "Rakez Freezone",
     label: "LIMITED",
-    visa: "1 Free Lifetime Visa",
     price: "AED 11990",
     features: [
       "Expert Consultation",
-      "1 Lifetime Visa",
       "100% Foreign Ownership",
       "Business License",
       "MOA & AOA Drafting",
-      "Free Tax/VAT Session",
-      "0% withhold tax",
       "100% profit repatriation",
       "Flexi desk",
       "Dedicated Manager"
@@ -66,16 +55,13 @@ const pricingPlans = [
   {
     name: "Dubai Mainland",
     label: "LIMITED",
-    visa: "1 Visa",
     price: "AED 19990",
     features: [
       "Business Consultation",
-      "1 Visa included",
       "100% Foreign Ownership",
       "Business License",
       "MOA & AOA",
-      "Free Tax/VAT Session",
-      "0% withhold tax",
+      "0% withhold",
       "100% profit repatriation",
       "Flexi desk",
       "Dedicated Manager"
@@ -174,7 +160,6 @@ export default function PricingSection() {
 
               <div className="mb-5 text-center sm:text-left">
                 <h3 className="text-xl font-bold text-[#1C6880] mb-1">{plan.name}</h3>
-                <p className="text-[10px] font-bold text-gray-400 uppercase tracking-widest">{plan.visa}</p>
               </div>
 
               <div className="mb-6 text-center sm:text-left pb-4 border-b border-gray-50">
