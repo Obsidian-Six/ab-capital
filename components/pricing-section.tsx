@@ -27,7 +27,6 @@ const pricingPlans = [
     price: "AED 12500",
     features: [
       "Setup Consultation",
-      "No visa Cost",
       "Full Foreign Ownership",
       "License Included",
       "MOA & AOA Provided",
