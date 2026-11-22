@@ -1,26 +1,152 @@
 @import "tailwindcss";
+@import "@fontsource/poppins/500.css";
+@import "@fontsource/poppins/600.css";
+@import "@fontsource/poppins/700.css";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+/* AB Capital design tokens, taken from the live site */
+@theme {
+  --color-brand: #01686a; /* primary teal */
+  --color-brand-dark: #014a4c;
+  --color-brand-deep: #01393a;
+  --color-mint: #deebeb; /* light teal section background */
+  --color-mist: #f7f9fb; /* light grey section background */
+  --color-ink: #1e293b; /* headings */
+  --color-body: #334155; /* body text */
+  --color-whatsapp: #25d366;
+  --color-gold: #f5b301;
+
+  --font-sans: -apple-system, "system-ui", "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+  --font-display: "Poppins", var(--font-sans);
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
+/* Base styles live in the "base" layer so utilities (e.g. white text on teal) always win */
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+  body {
+    color: var(--color-body);
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    color: var(--color-ink);
+    font-family: var(--font-display);
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+/* Reusable pieces */
+@utility container-x {
+  width: 100%;
+  max-width: 1140px;
+  margin-inline: auto;
+  padding-inline: 20px;
+}
+
+@utility section-y {
+  padding-block: 64px;
+  @media (width < 768px) {
+    padding-block: 44px;
+  }
+}
+
+@utility btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  border-radius: 6px;
+  padding: 12px 26px;
+  font-family: var(--font-display);
+  font-weight: 500;
+  font-size: 15px;
+  line-height: 1.2;
+  transition:
+    transform 0.15s ease,
+    background-color 0.15s ease,
+    box-shadow 0.15s ease;
+  &:hover {
+    transform: translateY(-1px);
+  }
+}
+
+@utility btn-dark {
+  background: linear-gradient(180deg, #0d3b3c, #032223);
+  color: #fff;
+  border: 1px solid rgb(255 255 255 / 0.25);
+  box-shadow: 0 6px 14px rgb(1 57 58 / 0.25);
+}
+
+@utility btn-light {
+  background: #fff;
+  color: var(--color-brand);
+  border: 1px solid #fff;
+}
+
+@utility btn-outline-light {
+  color: #fff;
+  border: 1px solid rgb(255 255 255 / 0.6);
+  background: rgb(1 57 58 / 0.55);
+}
+
+@utility card {
+  background: #fff;
+  border-radius: 14px;
+  box-shadow: 0 10px 30px rgb(15 23 42 / 0.08);
+}
+
+/* Rich text coming from the CMS */
+.prose-ab p {
+  margin-bottom: 1em;
+  line-height: 1.75;
+}
+.prose-ab ul {
+  list-style: disc;
+  padding-left: 1.25rem;
+  margin-bottom: 1em;
+}
+.prose-ab li {
+  margin-bottom: 0.4em;
+  line-height: 1.65;
+}
+.prose-ab strong {
+  color: var(--color-ink);
+}
+
+/* Logo marquee: pure CSS, no JavaScript */
+@keyframes marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+.marquee-track {
+  animation: marquee 40s linear infinite;
+}
+.marquee:hover .marquee-track {
+  animation-play-state: paused;
+}
+@media (prefers-reduced-motion: reduce) {
+  .marquee-track {
+    animation: none;
+  }
+}
+
+/* FAQ: native <details>, readable by every crawler */
+details > summary {
+  list-style: none;
+  cursor: pointer;
+}
+details > summary::-webkit-details-marker {
+  display: none;
+}
+details[open] .faq-icon {
+  transform: rotate(45deg);
 }
