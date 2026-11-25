@@ -1,3 +1,4 @@
+import { asset } from "@/lib/asset";
 import Link from "next/link";
 import type { PageSeo } from "@/lib/seo";
 import { WHATSAPP_LINK } from "@/content/site";
@@ -494,7 +495,7 @@ export function HomePage() {
         <div className="container-x">
           <h4 className="text-[26px] font-semibold md:text-[32px]">Watch our latest story</h4>
           <a href="https://www.instagram.com/abcapital.ae/" target="_blank" rel="noopener" className="card mx-auto mt-8 flex max-w-xl items-center gap-5 p-6 text-left">
-            <img src="/wp-content/uploads/sb-instagram-feed-images/abcapital.ae.webp" alt="abcapital.ae" width={72} height={72} loading="lazy" className="h-[72px] w-[72px] rounded-full object-cover" />
+            <img src={asset("/wp-content/uploads/sb-instagram-feed-images/abcapital.ae.webp")} alt="abcapital.ae" width={72} height={72} loading="lazy" className="h-[72px] w-[72px] rounded-full object-cover" />
             <span>
               <h3 className="text-[18px] font-semibold">abcapital.ae</h3>
               <span className="mt-1 block text-[14px] leading-relaxed">

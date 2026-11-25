@@ -1,4 +1,5 @@
 "use client";
+import { asset } from "@/lib/asset";
 
 import { useEffect, useState } from "react";
 import { Icon } from "@/components/Icon";
@@ -36,7 +37,7 @@ export function LeadPopup({ delayMs = 12000 }: { delayMs?: number }) {
         <button type="button" onClick={() => setOpen(false)} aria-label="Close" className="absolute right-2 top-2 z-10 grid h-8 w-8 place-items-center rounded-full bg-black/70 text-white">
           <Icon name="close" className="h-4 w-4" />
         </button>
-        <img src="/wp-content/uploads/2025/06/popup-480.jpeg" alt="Join 30,000+ Founders who launched their UAE business with AB Capital" width={480} height={260} className="h-auto w-full" />
+        <img src={asset("/wp-content/uploads/2025/06/popup-480.jpeg")} alt="Join 30,000+ Founders who launched their UAE business with AB Capital" width={480} height={260} className="h-auto w-full" />
         <div className="p-5">
           <LeadForm variant="quick" formId="fluent-4-popup" submitLabel="Get Offer" />
           <button type="button" onClick={() => setOpen(false)} className="mt-3 text-[13px] text-slate-500 underline">

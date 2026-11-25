@@ -1,3 +1,4 @@
+import { asset } from "@/lib/asset";
 import Link from "next/link";
 import { Icon } from "@/components/Icon";
 
@@ -31,7 +32,7 @@ export function Section({
     <section id={id} aria-label={label} className={`relative overflow-hidden section-y ${bgClass[bg]} ${className}`}>
       {bgImage && (
         <>
-          <img src={bgImage} alt="" aria-hidden="true" loading="lazy" decoding="async" className="absolute inset-0 -z-0 h-full w-full object-cover" />
+          <img src={asset(bgImage)} alt="" aria-hidden="true" loading="lazy" decoding="async" className="absolute inset-0 -z-0 h-full w-full object-cover" />
           <div className="absolute inset-0 bg-brand-deep/80" aria-hidden="true" />
         </>
       )}
@@ -93,7 +94,7 @@ export type Img = { src: string; alt: string; width?: number; height?: number };
 export function Picture({ img, className = "", priority = false }: { img: Img; className?: string; priority?: boolean }) {
   return (
     <img
-      src={img.src}
+      src={asset(img.src)}
       alt={img.alt}
       width={img.width}
       height={img.height}

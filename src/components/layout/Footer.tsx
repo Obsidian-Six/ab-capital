@@ -1,3 +1,4 @@
+import { asset } from "@/lib/asset";
 import Link from "next/link";
 import { Icon } from "@/components/Icon";
 import { WHATSAPP_LINK, contact, footer, logos, reviews, socials } from "@/content/site";
@@ -60,7 +61,7 @@ export function Footer() {
       <section className="bg-white py-12">
         <div className="container-x grid gap-10 md:grid-cols-[1.4fr_1fr_1fr_1fr]">
           <div>
-            <img src={logos.main.src} alt={logos.main.alt} width={logos.main.width} height={logos.main.height} loading="lazy" className="h-[75px] w-auto" />
+            <img src={asset(logos.main.src)} alt={logos.main.alt} width={logos.main.width} height={logos.main.height} loading="lazy" className="h-[75px] w-auto" />
             <p className="mt-4 max-w-xs text-[14px] leading-relaxed">{footer.tagline}</p>
             <ul className="mt-4 flex gap-2">
               {socials.map((s) => (

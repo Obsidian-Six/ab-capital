@@ -8,6 +8,12 @@ import { legacyRedirects } from "./src/content/redirects";
 const WP_ORIGIN = process.env.WP_ORIGIN ?? "https://abcapital.ae";
 
 const nextConfig: NextConfig = {
+  // Preview builds load images straight from the WordPress origin so the
+  // browser does not depend on the proxy. Production keeps relative
+  // /wp-content/uploads paths (served via the rewrite below) so URLs stay identical.
+  env: {
+    NEXT_PUBLIC_ASSET_ORIGIN: process.env.SITE_ENV === "production" ? "" : WP_ORIGIN,
+  },
   // Classic static rendering (no Cache Components / partial prefetch): every
   // marketing page is plain pre-built HTML with a single, smaller page payload.
 

@@ -1,3 +1,4 @@
+import { asset } from "@/lib/asset";
 import Link from "next/link";
 import { Icon } from "@/components/Icon";
 import { LeadForm } from "@/components/forms/LeadForm";
@@ -8,7 +9,7 @@ import { Bg, Button, CheckList, DataTable, Heading, HTag, Img, Picture, Section 
 export function HeroWithForm(p: { bgImage: string; eyebrow: string; h1: string; bullets: { icon: string; text: string }[]; buttons: { label: string; href: string; variant: "whatsapp" | "outline-light" }[]; formId: string }) {
   return (
     <section className="relative isolate overflow-hidden bg-brand-deep">
-      <img src={p.bgImage} alt="" aria-hidden="true" fetchPriority="high" decoding="async" className="absolute inset-0 -z-10 h-full w-full object-cover" />
+      <img src={asset(p.bgImage)} alt="" aria-hidden="true" fetchPriority="high" decoding="async" className="absolute inset-0 -z-10 h-full w-full object-cover" />
       <div className="absolute inset-0 -z-10 bg-gradient-to-r from-black/70 via-black/45 to-black/20" aria-hidden="true" />
       <div className="container-x grid items-center gap-10 py-14 md:grid-cols-2 md:py-20">
         <div className="text-white">
@@ -194,7 +195,7 @@ export function PlanCards(p: { bgImage: string; plans: { title: string; text: st
       <div className="grid gap-6 md:grid-cols-3">
         {p.plans.map((pl) => (
           <article key={pl.title} className="card flex flex-col p-7 text-center text-body">
-            <img src="/wp-content/uploads/2024/01/portfolio.png" alt="portfolio" width={56} height={56} loading="lazy" className="mx-auto h-14 w-14" />
+            <img src={asset("/wp-content/uploads/2024/01/portfolio.png")} alt="portfolio" width={56} height={56} loading="lazy" className="mx-auto h-14 w-14" />
             <h3 className="mt-4 text-[22px] font-bold !text-ink">{pl.title}</h3>
             <p className="mt-3 text-[13.5px] leading-relaxed">{pl.text}</p>
             <CheckList className="mt-5 text-left text-[13.5px]" items={[...pl.features, `Average Timeline: ${pl.timeline}`]} />
@@ -232,7 +233,7 @@ export function CaseStudies({ items }: { items: { title: string; href: string; i
       <div className="mt-10 grid gap-6 md:grid-cols-3">
         {items.map((c) => (
           <article key={c.href} className="card overflow-hidden text-center">
-            <img src={c.image} alt={c.title} width={460} height={460} loading="lazy" decoding="async" className="aspect-[4/3] w-full object-cover" />
+            <img src={asset(c.image)} alt={c.title} width={460} height={460} loading="lazy" decoding="async" className="aspect-[4/3] w-full object-cover" />
             <div className="p-6">
               <h4 className="text-[16px] font-semibold leading-snug">{c.title}</h4>
               <Button href={c.href} className="mt-5 !px-5 !py-2 !text-[13px]">
@@ -374,7 +375,7 @@ export function BlogCardView({ b, tag = "h3" }: { b: BlogCard; tag?: "h2" | "h3"
   return (
     <article className="card overflow-hidden text-body">
       <Link href={b.href}>
-        <img src={b.image} alt={b.imageAlt} width={800} height={450} loading="lazy" decoding="async" className="aspect-video w-full object-cover" />
+        <img src={asset(b.image)} alt={b.imageAlt} width={800} height={450} loading="lazy" decoding="async" className="aspect-video w-full object-cover" />
       </Link>
       <div className="p-6">
         <T className="text-[18px] font-semibold leading-snug !text-ink">

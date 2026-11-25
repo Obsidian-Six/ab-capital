@@ -1,3 +1,4 @@
+import { asset } from "@/lib/asset";
 import Link from "next/link";
 import { Icon } from "@/components/Icon";
 import { contact, logos, mainNav, socials } from "@/content/site";
@@ -13,7 +14,7 @@ export function Header() {
       {/* Top bar */}
       <div className="bg-brand text-white">
         <div className="mx-auto flex h-[52px] w-full max-w-[1320px] items-center justify-between gap-4 px-5 text-[13px]">
-          <img src={logos.fta.src} alt={logos.fta.alt} width={logos.fta.width} height={logos.fta.height} className="h-[30px] w-auto rounded bg-white px-1" />
+          <img src={asset(logos.fta.src)} alt={logos.fta.alt} width={logos.fta.width} height={logos.fta.height} className="h-[30px] w-auto rounded bg-white px-1" />
           <div className="hidden items-center gap-6 md:flex">
             <a href={contact.phoneHref} className="flex items-center gap-2 hover:underline">
               <Icon name="phone" className="h-3.5 w-3.5" /> {contact.phoneDisplay}
@@ -46,7 +47,7 @@ export function Header() {
       <div className="bg-white">
         <div className="mx-auto flex h-[78px] w-full max-w-[1320px] items-center justify-between px-5">
           <Link href="/" aria-label="AB Capital home" className="shrink-0">
-            <img src={logos.main.src} alt={logos.main.alt} width={logos.main.width} height={logos.main.height} className="h-[62px] w-auto" />
+            <img src={asset(logos.main.src)} alt={logos.main.alt} width={logos.main.width} height={logos.main.height} className="h-[62px] w-auto" />
           </Link>
 
           <nav aria-label="Main" className="hidden lg:block">
