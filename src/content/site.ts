@@ -23,7 +23,7 @@ export const socials = [
 
 export const logos = {
   main: {
-    src: "/wp-content/uploads/2025/12/WhatsApp-Image-2026-11-11-at-15.14.55-480.jpeg",
+    src: "/wp-content/uploads/2025/12/WhatsApp-Image-2026-11-11-at-15.14.55.jpeg",
     alt: "AB Capital logo",
     width: 166,
     height: 75,
